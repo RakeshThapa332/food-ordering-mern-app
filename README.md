@@ -1,90 +1,222 @@
-# FoodWorld
+# 🍔 FoodWorld – MERN Food Ordering Application
 
-FoodWorld is a MERN restaurant ordering application. Customers can browse restaurants and menus, manage a single-restaurant cart, and pay through Stripe Checkout. Restaurant owners can maintain their restaurant profile, menu, and order statuses.
+A full-stack restaurant ordering platform built using the **MERN stack**. FoodWorld allows customers to explore restaurants, browse menus, manage their carts, and place orders through Stripe Checkout. Restaurant owners can manage their restaurant profiles, menu items, and customer orders through a dedicated dashboard.
 
-## Stack
+---
 
-- React 18, TypeScript, Vite, Tailwind CSS, Zustand
-- Express, TypeScript, MongoDB, Mongoose
-- JWT authentication in an HTTP-only cookie
-- Cloudinary image storage, Mailtrap email, Stripe Checkout and webhooks
+## 📸 Screenshots
 
-## Requirements
+<!-- Add your application screenshots inside the screenshots/ directory -->
 
-- Node.js 20 or newer and npm
-- MongoDB connection string
-- Cloudinary account for restaurant and menu image uploads
-- Mailtrap API token for verification and password-reset emails
-- Stripe test keys and the Stripe CLI to exercise payment locally
+### Home Page
+![FoodWorld Home Page](screenshots/home.png.png)
 
-## Local setup
 
-1. Copy `.env.example` to `.env` in the project root and fill in the required credentials.
-2. Install dependencies:
+### Restaurant Menu
+![Restaurant Menu](screenshots/menu.png.png)
 
-   ```sh
-   npm install
-   npm install --prefix client
-   ```
+### Shopping Cart
+![Shopping Cart](screenshots/cart.png)
 
-3. Start the API server from the project root:
+### Checkout
+![Checkout](screenshots/checkout.png.png)
 
-   ```sh
-   npm run dev
-   ```
+### Restaurant Dashboard
+![Restaurant Dashboard](screenshots/dashboard.png.png)
 
-4. In a second terminal, start the Vite client:
+---
 
-   ```sh
-   npm run dev --prefix client
-   ```
+## ✨ Features
 
-   Open the URL printed by Vite (normally `http://localhost:5173`).
+### Customer Features
+- Browse available restaurants.
+- Explore restaurant menus and food items.
+- Add and remove items from the shopping cart.
+- Single-restaurant cart management.
+- Secure checkout using Stripe.
+- User authentication and email verification.
+- Password reset functionality.
+- View customer profiles and orders.
 
-For local development, `VITE_API_BASE_URL` should point to the server API, for example `http://localhost:3000/api/v1`. The client also supports a same-origin `/api/v1` base for deployments where Express serves the built client.
+### Restaurant Owner Features
+- Restaurant profile management.
+- Create, update, and manage menu items.
+- Upload restaurant and food images.
+- View incoming customer orders.
+- Update order statuses.
+- Access a dedicated restaurant dashboard.
 
-## Environment variables
+### Security and Payments
+- JWT-based authentication using HTTP-only cookies.
+- Protected routes and account verification.
+- Server-side order price calculation.
+- Stripe Checkout integration.
+- Stripe webhook signature verification.
 
-| Variable | Used by | Purpose |
-| --- | --- | --- |
-| `PORT` | Server | Express port (defaults to `3000`) |
-| `MONGO_URI` | Server | MongoDB connection string |
-| `SECRET_KEY` | Server | Secret used to sign JWTs |
-| `FRONTEND_URL` | Server | Frontend origin used for CORS, email links, and Stripe redirects |
-| `VITE_API_BASE_URL` | Client | API base URL; use the full local API URL during separate Vite/server development |
-| `SEED_OWNER_EMAIL` | Server | Email address granted restaurant-owner dashboard access when that account signs up |
-| `CLOUD_NAME`, `API_KEY`, `API_SECRET` | Server | Cloudinary credentials |
-| `MAILTRAP_API_TOKEN` | Server | Verification, welcome, and password-reset email delivery |
-| `STRIPE_SECRET_KEY` | Server | Stripe test/live secret key |
-| `WEBHOOK_ENDPOINT_SECRET` | Server | Stripe webhook signature secret |
+---
 
-Keep `.env` out of source control. The committed `.env.example` contains placeholders only. The configured owner account must complete email verification before using protected pages. `SEED_OWNER_EMAIL` is applied at account creation; for an already-existing account, set its `admin` flag through a trusted database administration process.
+## 🛠️ Tech Stack
 
-## Payments in test mode
+### Frontend
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Zustand](https://img.shields.io/badge/Zustand-443E38?style=for-the-badge)
 
-Set `STRIPE_SECRET_KEY` to a Stripe test secret, then run:
+### Backend
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 
-```sh
+### Database and Services
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![Mongoose](https://img.shields.io/badge/Mongoose-880000?style=for-the-badge)
+![Stripe](https://img.shields.io/badge/Stripe-635BFF?style=for-the-badge&logo=stripe&logoColor=white)
+![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white)
+
+**Additional tools:** Axios, React Router, Mailtrap, JWT, Git, and GitHub.
+
+---
+
+## 💻 Languages Used
+
+- TypeScript
+- JavaScript
+- HTML
+- CSS
+
+The application primarily uses TypeScript across its frontend and backend.
+
+---
+
+## ⚙️ Installation and Setup
+
+### Prerequisites
+
+Make sure you have installed:
+
+- [Node.js 20+](https://nodejs.org/)
+- npm
+- [MongoDB](https://www.mongodb.com/)
+- [Cloudinary](https://cloudinary.com/)
+- [Mailtrap](https://mailtrap.io/)
+- [Stripe](https://stripe.com/)
+
+### 1. Clone the Repository
+
+```bash
+git clone YOUR_REPOSITORY_URL
+cd FoodWorld
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+npm install --prefix client
+```
+
+### 3. Configure Environment Variables
+
+Create a `.env` file in the project root using `.env.example` as a reference.
+
+```env
+PORT=3000
+MONGO_URI=your_mongodb_connection_string
+SECRET_KEY=your_jwt_secret
+FRONTEND_URL=http://localhost:5173
+
+CLOUD_NAME=your_cloudinary_name
+API_KEY=your_cloudinary_api_key
+API_SECRET=your_cloudinary_api_secret
+
+MAILTRAP_API_TOKEN=your_mailtrap_token
+
+STRIPE_SECRET_KEY=your_stripe_secret_key
+WEBHOOK_ENDPOINT_SECRET=your_stripe_webhook_secret
+
+VITE_API_BASE_URL=http://localhost:3000/api/v1
+```
+
+### 4. Start the Backend
+
+From the project root:
+
+```bash
+npm run dev
+```
+
+### 5. Start the Frontend
+
+Open another terminal:
+
+```bash
+npm run dev --prefix client
+```
+
+Open the local URL provided by Vite:
+
+```text
+http://localhost:5173
+```
+
+---
+
+## 💳 Stripe Payment Testing
+
+FoodWorld uses Stripe Checkout for payment processing.
+
+To test payments locally:
+
+1. Configure your Stripe test secret key.
+2. Install and authenticate the Stripe CLI.
+3. Run the project's Stripe forwarding command:
+
+```bash
 npm run stripe
 ```
 
-Copy the signing secret printed by Stripe CLI into `WEBHOOK_ENDPOINT_SECRET`. The application creates orders from database menu prices on the server; the browser-submitted price is not used to calculate the Stripe line items. The current checkout accepts card payments and uses Nepal as its allowed delivery country.
+4. Copy the webhook signing secret generated by Stripe CLI into `WEBHOOK_ENDPOINT_SECRET`.
+5. Use Stripe's test card details to complete a test checkout.
 
-## Useful commands
+The backend calculates order prices using database menu prices rather than trusting browser-submitted prices.
 
-```sh
-npm run dev                         # Express API
-npm run dev --prefix client         # Vite client
-npm run build --prefix client       # Frontend TypeScript check and production build
-npm run lint --prefix client        # Frontend ESLint
-npx tsc --noEmit --target ES2020 --module commonjs --moduleResolution node --esModuleInterop --skipLibCheck --strict false --types node server/index.ts
-```
+---
 
-In production, build the client and run the Express server with the required environment variables; Express serves `client/dist` as the frontend and handles `/api/v1` requests.
+## 📜 Available Scripts
 
-## Current scope
+| Command | Description |
+|---|---|
+| `npm run dev` | Start backend development server |
+| `npm run dev --prefix client` | Start frontend development server |
+| `npm run build --prefix client` | Type-check and build frontend |
+| `npm run lint --prefix client` | Run frontend ESLint |
+| `npm run stripe` | Start Stripe webhook forwarding |
 
-- One restaurant per owner account; menu items are managed under that restaurant.
-- Restaurant discovery and menu browsing are public. Cart checkout and order/profile pages require a verified account.
-- Dashboard totals and order statuses are based on stored restaurant orders; the application does not currently have ratings, delivery-fee calculation, inventory availability, or historical sales charts.
-- There is no automated test suite in the repository yet. Builds and lint are available; Stripe, email delivery, Cloudinary uploads, and database workflows require configured external services for end-to-end testing.
+---
+
+## 🚧 Current Limitations
+
+- Each owner account manages one restaurant.
+- Ratings and reviews are not currently implemented.
+- Delivery-fee calculation is not implemented.
+- Inventory availability management is not implemented.
+- Historical sales charts are not currently available.
+- An automated test suite has not yet been added.
+- External services must be configured to test payment, email, image upload, and database workflows end to end.
+
+---
+
+## 🔮 Future Improvements
+
+- Restaurant ratings and customer reviews.
+- Real-time order tracking.
+- Delivery management.
+- Advanced restaurant search and filtering.
+- Discount coupons and promotional offers.
+- Multiple customer delivery addresses.
+- Restaurant analytics and sales reports.
+- Automated testing and CI/CD integration.
+
+---

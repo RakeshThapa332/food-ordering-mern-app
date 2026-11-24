@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 98%;
+    --foreground: 24 10% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 24 10% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 10% 12%;
+    --primary: 18 82% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 30 18% 93%;
+    --secondary-foreground: 24 10% 12%;
+    --muted: 35 18% 94%;
+    --muted-foreground: 25 7% 42%;
+    --accent: 30 18% 93%;
+    --accent-foreground: 24 10% 12%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 30 14% 88%;
+    --input: 30 14% 88%;
+    --ring: 18 82% 55%;
+    --radius: 0.5rem;
+    --chart-1: 18 82% 55%;
+    --chart-2: 145 48% 42%;
+    --chart-3: 197 37% 38%;
+    --chart-4: 43 74% 58%;
+    --chart-5: 27 87% 57%;
+    --button: #e85d3f;
+    --hoverButtonColor: #d94d31;
+  }
+
+  .dark {
+    --background: 24 10% 10%;
+    --foreground: 40 25% 94%;
+    --card: 24 9% 13%;
+    --card-foreground: 40 25% 94%;
+    --popover: 24 9% 13%;
+    --popover-foreground: 40 25% 94%;
+    --primary: 18 82% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 24 8% 19%;
+    --secondary-foreground: 40 25% 94%;
+    --muted: 24 8% 19%;
+    --muted-foreground: 30 8% 68%;
+    --accent: 24 8% 19%;
+    --accent-foreground: 40 25% 94%;
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 24 8% 23%;
+    --input: 24 8% 23%;
+    --ring: 18 82% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    min-width: 320px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    min-width: 320px;
+    margin: 0;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  button,
+  a,
+  input {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  a {
+    @apply transition-colors;
+  }
+
+  img {
+    @apply max-w-full;
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
